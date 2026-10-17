@@ -1,0 +1,17 @@
+# Berkas sementara sistem operasi
+.DS_Store
+Thumbs.db
+
+# Berkas sementara editor dan cache
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*~
+__pycache__/
+*.pyc
+
+# Berkas dokumen tugas lokal
+*.pdf
+*.pptx
