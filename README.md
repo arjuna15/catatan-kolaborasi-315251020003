@@ -26,5 +26,8 @@ Repositori tugas **Repositori Git Pertama** untuk mata kuliah Komputasi Kolabora
 - `.gitignore`: Berkas konfigurasi pengabaian berkas sementara.
 
 ## Bukti Pengumpulan
-- [Tangkapan layar riwayat commit (`git log --oneline`)](Screenshot%20from%202026-10-17%2019-25-09.png)
-- [Tangkapan layar status repositori (`git status`)](Screenshot%20from%202026-10-17%2019-25-14.png)
+### Riwayat Commit (`git log --oneline`)
+![Bukti riwayat commit dari perintah git log --oneline](bukti-git-log-oneline.png)
+
+### Status Repositori (`git status`)
+![Bukti status repositori bersih dari perintah git status](bukti-git-status-clean.png)
