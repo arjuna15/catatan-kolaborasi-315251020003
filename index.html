@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wibuin aja - Streaming Anime Sub Indo Terlengkap & Tercepat</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Nonton anime sub Indo online gratis kualitas Full HD 1080p terlengkap tanpa buffering. Update anime ongoing, movie anime, dan batch terbaru setiap hari di wibuin aja.">
+    <meta name="keywords" content="wibuin aja, anime sub indo, nonton anime, samehadaku, otakudesu, streaming anime hd, anime ongoing 2026, anime movie sub indo">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Zen+Dots&family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Pro Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Anime Glass & Cyber Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cyber-anime-theme">
+    <!-- Cyber Neon Background Glows -->
+    <div class="neon-aurora aura-1"></div>
+    <div class="neon-aurora aura-2"></div>
+    <div class="neon-aurora aura-3"></div>
+
+    <!-- Floating Glass Anime Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand" onclick="navigateTab('home')">
+                <div class="brand-badge-icon">
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-jp">アニメ</span>
+                    <span class="brand-main">wibuin <span class="brand-accent">aja</span></span>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Menu Tabs -->
+            <nav class="nav-menu desktop-menu">
+                <button class="nav-link active" data-tab="home" onclick="navigateTab('home')">
+                    <i class="fa-solid fa-house"></i> Beranda
+                </button>
+                <button class="nav-link" data-tab="ongoing" onclick="navigateTab('ongoing')">
+                    <i class="fa-solid fa-bolt-lightning"></i> Ongoing
+                    <span class="pill-dot"></span>
+                </button>
+                <button class="nav-link" data-tab="completed" onclick="navigateTab('completed')">
+                    <i class="fa-solid fa-circle-check"></i> Tamat / Complete
+                </button>
+                <button class="nav-link" data-tab="movies" onclick="navigateTab('movies')">
+                    <i class="fa-solid fa-film"></i> Anime Movie
+                </button>
+                <button class="nav-link" data-tab="schedule" onclick="navigateTab('schedule')">
+                    <i class="fa-solid fa-calendar-days"></i> Jadwal Rilis
+                </button>
+                <button class="nav-link" data-tab="watchlist" onclick="navigateTab('watchlist')">
+                    <i class="fa-solid fa-heart"></i> Favorit (<span id="fav-count">0</span>)
+                </button>
+            </nav>
+
+            <!-- Search & Actions -->
+            <div class="nav-actions">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Cari Solo Leveling, Bleach, One Piece..." autocomplete="off">
+                    <button id="clear-search" class="clear-btn hidden"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-dropdown-btn" id="mobile-dropdown-btn" aria-label="Menu Mobile">
+                    <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+                    <span>Menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div class="mobile-dropdown-menu hidden" id="mobile-dropdown-menu">
+            <nav class="mobile-nav-links">
+                <button class="mobile-nav-link active" onclick="navigateTab('home')">
+                    <i class="fa-solid fa-house"></i> Beranda <i class="fa-solid fa-chevron-right arrow"></i>
+                </button>
+                <button class="mobile-nav-link" onclick="navigateTab('ongoing')">
+                    <i class="fa-solid fa-bolt-lightning"></i> Anime Ongoing (Musim Ini) <i class="fa-solid fa-chevron-right arrow"></i>
+                </button>
+                <button class="mobile-nav-link" onclick="navigateTab('completed')">
+                    <i class="fa-solid fa-circle-check"></i> Anime Tamat (Batch) <i class="fa-solid fa-chevron-right arrow"></i>
+                </button>
+                <button class="mobile-nav-link" onclick="navigateTab('movies')">
+                    <i class="fa-solid fa-film"></i> Anime Movie HD <i class="fa-solid fa-chevron-right arrow"></i>
+                </button>
+                <button class="mobile-nav-link" onclick="navigateTab('schedule')">
+                    <i class="fa-solid fa-calendar-days"></i> Jadwal Tayang Mingguan <i class="fa-solid fa-chevron-right arrow"></i>
+                </button>
+                <button class="mobile-nav-link" onclick="navigateTab('watchlist')">
+                    <i class="fa-solid fa-heart"></i> Koleksi Favorit (<span class="fav-count-mobile">0</span>) <i class="fa-solid fa-chevron-right arrow"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        <!-- Hero Spotlight Billboard -->
+        <section class="hero-section" id="hero-banner">
+            <div class="hero-bg" id="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-tags">
+                    <span class="hero-badge badge-hot"><i class="fa-solid fa-fire"></i> SPOTLIGHT ANIME</span>
+                    <span class="hero-badge badge-quality">1080p ULTRA HD</span>
+                    <span class="hero-badge badge-sub">SUBTITLE INDONESIA</span>
+                </div>
+                <h1 class="hero-title" id="hero-title">Solo Leveling: Arise</h1>
+                <p class="hero-synopsis" id="hero-synopsis">
+                    Di dunia di mana pemburu manusia dengan kekuatan magis bertarung melawan monster mematikan, seorang pemburu terlemah bernama Sung Jin-woo mendapatkan kesempatan kedua dengan kekuatan "System" misterius.
+                </p>
+                <div class="hero-meta">
+                    <span class="meta-item rating"><i class="fa-solid fa-star text-gold"></i> <strong id="hero-rating">8.9</strong>/10</span>
+                    <span class="meta-item year" id="hero-year">2026</span>
+                    <span class="meta-item status" id="hero-status">Ongoing</span>
+                    <span class="meta-item genre" id="hero-genre">Action • Fantasy</span>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn-play-hero" id="hero-play-btn">
+                        <i class="fa-solid fa-play"></i> Tonton Sekarang
+                    </button>
+                    <button class="btn-info-hero" id="hero-info-btn">
+                        <i class="fa-solid fa-circle-info"></i> Detail Episode
+                    </button>
+                    <button class="btn-bookmark-hero" id="hero-fav-btn">
+                        <i class="fa-regular fa-heart"></i> Simpan
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Broadcast Schedule Bar (Jadwal Rilis Anime Hari Ini) -->
+        <section class="schedule-section" id="schedule-bar">
+            <div class="schedule-header">
+                <div class="schedule-title-box">
+                    <i class="fa-solid fa-broadcast-tower text-neon"></i>
+                    <span>Jadwal Tayang Anime (Update Tiap Hari)</span>
+                </div>
+                <div class="schedule-days" id="schedule-days">
+                    <button class="day-chip active" data-day="senin">Senin</button>
+                    <button class="day-chip" data-day="selasa">Selasa</button>
+                    <button class="day-chip" data-day="rabu">Rabu</button>
+                    <button class="day-chip" data-day="kamis">Kamis</button>
+                    <button class="day-chip" data-day="jumat">Jumat</button>
+                    <button class="day-chip" data-day="sabtu">Sabtu</button>
+                    <button class="day-chip" data-day="minggu">Minggu</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Genre & Filter Chips Section -->
+        <section class="filter-section">
+            <div class="filter-wrapper">
+                <div class="genre-chips" id="genre-chips">
+                    <button class="chip active" data-genre="all"><i class="fa-solid fa-layer-group"></i> Semua Genre</button>
+                    <button class="chip" data-genre="Action"><i class="fa-solid fa-khanda"></i> Action</button>
+                    <button class="chip" data-genre="Adventure"><i class="fa-solid fa-compass"></i> Adventure</button>
+                    <button class="chip" data-genre="Fantasy"><i class="fa-solid fa-wand-magic-sparkles"></i> Fantasy</button>
+                    <button class="chip" data-genre="Comedy"><i class="fa-solid fa-face-laugh-squint"></i> Comedy</button>
+                    <button class="chip" data-genre="Drama"><i class="fa-solid fa-masks-theater"></i> Drama</button>
+                    <button class="chip" data-genre="Romance"><i class="fa-solid fa-heart"></i> Romance</button>
+                    <button class="chip" data-genre="Sci-Fi"><i class="fa-solid fa-robot"></i> Sci-Fi</button>
+                    <button class="chip" data-genre="Mystery"><i class="fa-solid fa-user-secret"></i> Mystery</button>
+                    <button class="chip" data-genre="Isekai"><i class="fa-solid fa-door-open"></i> Isekai</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Content Section -->
+        <section class="content-section">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <h2 id="section-title"><i class="fa-solid fa-fire text-neon"></i> Anime Ongoing Terbaru (Musim 2026)</h2>
+                </div>
+                <div class="section-meta">
+                    <span class="count-badge" id="catalog-count">Memuat anime...</span>
+                </div>
+            </div>
+
+            <!-- Anime Cards Grid (Strict responsive grid) -->
+            <div class="anime-grid" id="anime-grid">
+                <!-- Dynamically populated cards -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-container" id="pagination-box">
+                <!-- Pagination buttons generated by JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Cinema Anime Video Player Modal -->
+    <div class="modal-backdrop hidden" id="player-modal">
+        <div class="modal-container">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-title-info">
+                    <h3 id="modal-anime-title">Judul Anime</h3>
+                    <div class="modal-badges">
+                        <span class="modal-badge badge-sub"><i class="fa-solid fa-closed-captioning"></i> Sub Indo</span>
+                        <span class="modal-badge badge-score"><i class="fa-solid fa-star"></i> <span id="modal-score">8.5</span></span>
+                        <span class="modal-badge badge-type" id="modal-type-badge">TV Series</span>
+                        <span class="modal-badge badge-status" id="modal-status-badge">Ongoing</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-fav-anime" id="modal-fav-btn">
+                        <i class="fa-regular fa-heart"></i> Tambah Favorit
+                    </button>
+                    <button class="btn-close-modal" id="modal-close-btn" aria-label="Tutup Player">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Video Player Widescreen Wrapper -->
+            <div class="video-player-wrapper" id="player-wrapper">
+                <div class="player-loader hidden" id="player-loader">
+                    <div class="anime-spinner">
+                        <div class="spinner-ring"></div>
+                        <i class="fa-solid fa-bolt spinner-icon"></i>
+                    </div>
+                    <span>Menghubungkan ke Server Streaming Otaku...</span>
+                </div>
+
+                <!-- Live Stream Iframe -->
+                <iframe id="stream-iframe" 
+                        src="" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        allowfullscreen 
+                        allow="autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                        referrerpolicy="no-referrer">
+                </iframe>
+
+                <!-- Auto Next Episode Countdown Toast -->
+                <div class="auto-next-toast hidden" id="auto-next-toast">
+                    <div class="toast-content">
+                        <i class="fa-solid fa-forward-step toast-icon"></i>
+                        <div class="toast-text">
+                            <h4>Episode Selesai!</h4>
+                            <p>Otomatis memutar <strong id="next-ep-label">Episode 2</strong> dalam <span id="countdown-timer">5</span> detik...</p>
+                        </div>
+                        <div class="toast-actions">
+                            <button id="cancel-auto-next" class="btn-toast-cancel">Batal</button>
+                            <button id="play-next-now" class="btn-toast-play">Putar Sekarang <i class="fa-solid fa-play"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anime Streaming Server Selector Bar -->
+            <div class="server-selector-bar">
+                <span class="server-label"><i class="fa-solid fa-server"></i> Server Anime VIP (Langsung Putar di Web):</span>
+                <div class="server-buttons" id="server-list">
+                    <button class="server-btn active" data-server="multiembed"><i class="fa-solid fa-bolt"></i> Server 1 (MultiEmbed Ultra HD)</button>
+                    <button class="server-btn" data-server="vidsrc"><i class="fa-solid fa-play"></i> Server 2 (VidSrc Stream)</button>
+                    <button class="server-btn" data-server="2embed"><i class="fa-solid fa-clapperboard"></i> Server 3 (2Embed VIP)</button>
+                    <button class="server-btn" data-server="autoembed"><i class="fa-solid fa-film"></i> Server 4 (AutoEmbed)</button>
+                    <button class="server-btn" data-server="smashy"><i class="fa-solid fa-video"></i> Server 5 (Smashy Anime)</button>
+                    <button class="server-btn" data-server="nontongo"><i class="fa-solid fa-tv"></i> Server 6 (NontonGo)</button>
+                </div>
+            </div>
+
+            <!-- Episode Selector Bar & Auto-Next Toggle -->
+            <div class="episodes-bar" id="episodes-bar">
+                <div class="episodes-bar-header">
+                    <div class="season-picker">
+                        <label><i class="fa-solid fa-layer-group"></i> Musim / Season:</label>
+                        <div class="custom-glass-dropdown" id="custom-season-dropdown">
+                            <button class="glass-dropdown-trigger" id="season-dropdown-trigger" type="button">
+                                <span id="selected-season-label">Season 1</span>
+                                <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                            </button>
+                            <div class="glass-dropdown-menu hidden" id="season-dropdown-menu">
+                                <!-- Dynamic season items -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Auto Next Episode Switch -->
+                    <div class="auto-next-box">
+                        <label class="auto-next-label">
+                            <i class="fa-solid fa-forward-step"></i> Auto-Next Episode
+                        </label>
+                        <button class="toggle-pill active" id="auto-next-toggle" type="button">
+                            <span class="toggle-thumb"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Episode Grid Pills -->
+                <div class="episode-picker">
+                    <span class="episode-label"><i class="fa-solid fa-list-ol"></i> Pilih Episode:</span>
+                    <div class="episode-grid" id="episode-grid">
+                        <!-- Episode buttons generated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anime Info & Synopsis Card -->
+            <div class="modal-anime-details">
+                <div class="anime-detail-grid">
+                    <img id="modal-poster" src="" alt="Poster" class="anime-modal-poster">
+                    <div class="anime-modal-synopsis">
+                        <h4><i class="fa-solid fa-book-open"></i> Sinopsis Lengkap</h4>
+                        <p id="modal-overview">Sinopsis anime...</p>
+                        <div class="anime-meta-badges" id="modal-genre-badges">
+                            <!-- Genre pills -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand-box">
+                <div class="brand-text">
+                    <span class="brand-jp">アニメ</span>
+                    <span class="brand-main">wibuin <span class="brand-accent">aja</span></span>
+                </div>
+                <p>Platform streaming anime gratis kualitas 1080p Full HD Subtitle Indonesia terlengkap dengan desain modern bertema Wibu Cyberpunk.</p>
+            </div>
+            <div class="footer-links-box">
+                <h4>Navigasi Anime</h4>
+                <ul>
+                    <li><a href="#" onclick="navigateTab('home'); return false;"><i class="fa-solid fa-chevron-right"></i> Beranda Utama</a></li>
+                    <li><a href="#" onclick="navigateTab('ongoing'); return false;"><i class="fa-solid fa-chevron-right"></i> Anime Ongoing</a></li>
+                    <li><a href="#" onclick="navigateTab('completed'); return false;"><i class="fa-solid fa-chevron-right"></i> Anime Tamat (Batch)</a></li>
+                    <li><a href="#" onclick="navigateTab('movies'); return false;"><i class="fa-solid fa-chevron-right"></i> Anime Movie HD</a></li>
+                    <li><a href="#" onclick="navigateTab('schedule'); return false;"><i class="fa-solid fa-chevron-right"></i> Jadwal Rilis</a></li>
+                </ul>
+            </div>
+            <div class="footer-status-box">
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    <span>Server Anime: <strong>100% Online & Fast Stream</strong></span>
+                </div>
+                <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                    <i class="fa-solid fa-arrow-up"></i> Kembali ke Atas
+                </button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 wibuin aja • Didedikasikan untuk Seluruh Pecinta Anime Indonesia.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
