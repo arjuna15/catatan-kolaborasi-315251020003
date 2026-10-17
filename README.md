@@ -1,6 +1,8 @@
-# Catatan Pembelajaran Komputasi Kolaboratif & Aplikasi Streaming Anime
+# Catatan Kolaborasi — 315251020003
 
-Repositori ini berisi proyek aplikasi web streaming anime berbasis katalog data dan dokumentasi pembelajaran mata kuliah Komputasi Kolaboratif.
+Repositori tugas **Repositori Git Pertama** untuk mata kuliah Komputasi Kolaboratif. Isinya mencakup catatan pertemuan, refleksi penggunaan Git, dan proyek aplikasi web streaming anime.
+
+- **Repositori GitHub**: [catatan-kolaborasi-315251020003](https://github.com/arjuna15/catatan-kolaborasi-315251020003)
 
 - 🌐 **Live Demo Aplikasi**: [https://wibuinaja.vercel.app/](https://wibuinaja.vercel.app/)
 
@@ -22,3 +24,7 @@ Repositori ini berisi proyek aplikasi web streaming anime berbasis katalog data 
 - `catatan-pertemuan-2.md`: Ringkasan materi groupware dan koordinasi alur kerja tim.
 - `refleksi.md`: Refleksi pribadi mengenai alur kerja Git vs konvensional.
 - `.gitignore`: Berkas konfigurasi pengabaian berkas sementara.
+
+## Bukti Pengumpulan
+- [Tangkapan layar riwayat commit (`git log --oneline`)](Screenshot%20from%202026-10-17%2019-25-09.png)
+- [Tangkapan layar status repositori (`git status`)](Screenshot%20from%202026-10-17%2019-25-14.png)
