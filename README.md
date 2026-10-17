@@ -2,6 +2,8 @@
 
 Repositori ini berisi proyek aplikasi web streaming anime berbasis katalog data dan dokumentasi pembelajaran mata kuliah Komputasi Kolaboratif.
 
+- 🌐 **Live Demo Aplikasi**: [https://wibuinaja.vercel.app/](https://wibuinaja.vercel.app/)
+
 ## Identitas Mahasiswa
 - **Nama**: Arjuna Arrasyid
 - **NIM**: 315251020003
