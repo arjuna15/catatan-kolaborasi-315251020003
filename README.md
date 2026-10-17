@@ -5,9 +5,8 @@ Repositori ini berisi proyek aplikasi web streaming anime berbasis katalog data 
 ## Identitas Mahasiswa
 - **Nama**: Arjuna Arrasyid
 - **NIM**: 315251020003
-- **Program Studi**: Sistem Informasi / Informatika
+- **Program Studi**: Sistem Teknologi Informasi
 - **Mata Kuliah**: Komputasi Kolaboratif
-- **Dosen Pengampu**: M. Amran Hakim Siregar, S.Tr.Kom., M.Kom
 
 ## Fitur Aplikasi
 - Katalog anime interaktif dengan pencarian cepat
@@ -17,7 +16,7 @@ Repositori ini berisi proyek aplikasi web streaming anime berbasis katalog data 
 ## Struktur Repositori
 - `index.html`, `styles.css`, `app.js`: Berkas antarmuka dan logika aplikasi streaming anime.
 - `anime_catalog.json`: Basis data katalog anime.
-- `catatan-pertemuan-1.md`: Ringkasan materi perkuliahan pertemuan 1 (Pengantar Komputasi Kolaboratif & Model 3C).
-- `catatan-pertemuan-2.md`: Ringkasan materi perkuliahan pertemuan 2 (Model dan Taksonomi Kolaborasi).
+- `catatan-pertemuan-1.md`: Ringkasan materi pengantar komputasi kolaboratif.
+- `catatan-pertemuan-2.md`: Ringkasan materi groupware dan koordinasi alur kerja tim.
 - `refleksi.md`: Refleksi pribadi mengenai alur kerja Git vs konvensional.
 - `.gitignore`: Berkas konfigurasi pengabaian berkas sementara.
