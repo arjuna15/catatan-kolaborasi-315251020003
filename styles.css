@@ -1,0 +1,1671 @@
+/* ==========================================================================
+   WIBUIN AJA - MANGA DOODLE & ANIME SKETCH THEME (SPECIAL OTAKU DOODLE EDITION)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Gochi+Hand&family=Patrick+Hand&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Zen+Dots&family=Yuji+Boku&display=swap');
+
+:root {
+    /* Manga Sketch & Doodle Color Palette */
+    --bg-dark: #0f111a;
+    --bg-surface: #171a26;
+    --bg-surface-elevated: #1f2333;
+    --bg-paper: #1a1d2d;
+    --bg-card: rgba(23, 26, 38, 0.95);
+    
+    /* Hand-Drawn Doodle Inks & Neon Highlighters */
+    --ink-black: #08090e;
+    --ink-white: #ffffff;
+    --pencil-line: rgba(255, 255, 255, 0.18);
+    --pencil-border: rgba(255, 255, 255, 0.35);
+    
+    /* Highlighter Markers */
+    --marker-yellow: #ffe600;
+    --marker-pink: #ff2a85;
+    --marker-cyan: #00f0ff;
+    --marker-purple: #a855f7;
+    --marker-orange: #ff6b35;
+    
+    --primary: var(--marker-pink);
+    --primary-glow: rgba(255, 42, 133, 0.4);
+
+    /* Text Colors */
+    --text-pure: #ffffff;
+    --text-main: #f8fafc;
+    --text-hand: #fef08a;
+    --text-muted: #94a3b8;
+    --text-dim: #64748b;
+
+    /* Hand-Drawn Borders & Sketchy Radii */
+    --radius-doodle-1: 255px 15px 225px 15px/15px 225px 15px 255px;
+    --radius-doodle-2: 20px 255px 20px 25px/255px 20px 25px 255px;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-full: 9999px;
+
+    /* Shadows: Hand-drawn Hard Drop Shadows (Comic Style) */
+    --shadow-doodle: 4px 4px 0px #000, 4px 4px 0px var(--marker-pink);
+    --shadow-doodle-cyan: 4px 4px 0px #000, 4px 4px 0px var(--marker-cyan);
+    --shadow-doodle-yellow: 4px 4px 0px #000, 4px 4px 0px var(--marker-yellow);
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* Manga Sketch Grid & Dotted Halftone Pattern */
+    background-image: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.06) 1.5px, transparent 1.5px),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 24px 24px, 48px 48px, 48px 48px;
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Doodle Manga Font Classes */
+.doodle-font {
+    font-family: 'Patrick Hand', 'Gochi Hand', cursive;
+}
+
+/* Custom Hand-Drawn Scrollbars */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #0d0f17;
+    border-left: 2px dashed rgba(255, 255, 255, 0.15);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--marker-yellow);
+    border: 2px solid #000;
+    border-radius: var(--radius-doodle-1);
+}
+
+/* Background Animated Doodle Auroras */
+.neon-aurora {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.28;
+}
+
+.aura-1 {
+    width: 600px;
+    height: 600px;
+    background: var(--marker-pink);
+    top: -200px;
+    right: -100px;
+}
+
+.aura-2 {
+    width: 700px;
+    height: 700px;
+    background: var(--marker-purple);
+    bottom: -200px;
+    left: -150px;
+}
+
+.aura-3 {
+    width: 500px;
+    height: 500px;
+    background: var(--marker-cyan);
+    top: 40%;
+    right: 20%;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR (Hand-Drawn Sketch Box)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 15px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0 1.5rem;
+}
+
+.nav-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    background: var(--bg-surface);
+    border: 2.5px solid #fff;
+    border-radius: var(--radius-doodle-1);
+    padding: 0.65rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 4px 5px 0px #000, 4px 5px 0px var(--marker-yellow);
+    transition: transform 0.2s ease;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.brand-badge-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--marker-yellow);
+    color: #000;
+    border: 2px solid #000;
+    border-radius: var(--radius-doodle-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    box-shadow: 2px 2px 0px #fff;
+    transform: rotate(-3deg);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-jp {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--marker-cyan);
+    line-height: 1;
+}
+
+.brand-main {
+    font-family: 'Gochi Hand', 'Zen Dots', cursive;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #fff;
+    text-shadow: 2px 2px 0px #000;
+}
+
+.brand-accent {
+    color: var(--marker-pink);
+    text-decoration: underline wavy var(--marker-yellow);
+}
+
+/* Desktop Menu */
+.desktop-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link {
+    background: transparent;
+    border: 2px dashed transparent;
+    color: var(--text-muted);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius-doodle-2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px) rotate(1deg);
+}
+
+.nav-link.active {
+    color: #000;
+    background: var(--marker-yellow);
+    border: 2px solid #000;
+    box-shadow: 2px 2px 0px var(--marker-pink);
+    transform: rotate(-1.5deg);
+}
+
+.pill-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--marker-pink);
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+/* Search Box */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 250px;
+    background: #0d0f17;
+    border: 2px solid #fff;
+    border-radius: var(--radius-doodle-1);
+    padding: 0.45rem 1rem;
+    box-shadow: 2px 2px 0px var(--marker-cyan);
+    transition: all 0.25s ease;
+}
+
+.search-box:focus-within {
+    width: 290px;
+    border-color: var(--marker-yellow);
+    box-shadow: 3px 3px 0px var(--marker-pink);
+}
+
+.search-icon {
+    color: var(--marker-yellow);
+    margin-right: 0.6rem;
+    font-size: 0.95rem;
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.search-box input::placeholder {
+    color: var(--text-dim);
+    font-family: 'Patrick Hand', sans-serif;
+}
+
+.clear-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.clear-btn:hover {
+    color: var(--marker-pink);
+}
+
+/* Mobile Dropdown */
+.mobile-dropdown-btn {
+    display: none;
+    background: var(--marker-pink);
+    border: 2px solid #000;
+    color: #fff;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius-doodle-2);
+    cursor: pointer;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 2px 2px 0px #fff;
+}
+
+.mobile-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 1.5rem;
+    right: 1.5rem;
+    background: var(--bg-surface);
+    border: 3px solid #fff;
+    border-radius: var(--radius-doodle-1);
+    padding: 1rem;
+    box-shadow: 5px 5px 0px #000, 5px 5px 0px var(--marker-pink);
+    z-index: 999;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1.2rem;
+    border-radius: var(--radius-doodle-2);
+    background: #0d0f17;
+    border: 1.5px dashed rgba(255, 255, 255, 0.2);
+    color: var(--text-main);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+    background: var(--marker-yellow);
+    color: #000;
+    border: 2px solid #000;
+    box-shadow: 3px 3px 0px var(--marker-pink);
+}
+
+/* ==========================================================================
+   MAIN CONTENT & HERO SPOTLIGHT (MANGA COMIC COVER STYLE)
+   ========================================================================== */
+.main-content {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 110px 1.5rem 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    border-radius: var(--radius-doodle-1);
+    overflow: hidden;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    border: 3.5px solid #fff;
+    box-shadow: 6px 6px 0px #000, 6px 6px 0px var(--marker-pink);
+    background: #080a12;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 25%;
+    filter: contrast(1.1) brightness(0.85);
+    transition: all 0.8s ease;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(8, 10, 18, 0.96) 0%, rgba(8, 10, 18, 0.8) 50%, rgba(8, 10, 18, 0.3) 100%),
+                linear-gradient(0deg, rgba(8, 10, 18, 0.95) 0%, transparent 60%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 3.5rem;
+    max-width: 780px;
+}
+
+.hero-tags {
+    display: flex;
+    gap: 0.7rem;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.hero-badge {
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    padding: 0.35rem 0.9rem;
+    border: 2px solid #000;
+    border-radius: var(--radius-doodle-2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 2px 2px 0px #fff;
+}
+
+.badge-hot {
+    background: var(--marker-pink);
+    color: #fff;
+    transform: rotate(-2deg);
+}
+
+.badge-quality {
+    background: var(--marker-cyan);
+    color: #000;
+    transform: rotate(1deg);
+}
+
+.badge-sub {
+    background: var(--marker-yellow);
+    color: #000;
+    transform: rotate(-1deg);
+}
+
+.hero-title {
+    font-family: 'Gochi Hand', 'Zen Dots', cursive;
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 3px 3px 0px #000, 5px 5px 0px var(--marker-pink);
+}
+
+.hero-synopsis {
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 1.6rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    margin-bottom: 2rem;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.text-gold {
+    color: var(--marker-yellow);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.btn-play-hero {
+    background: var(--marker-yellow);
+    color: #000;
+    border: 3px solid #000;
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius-doodle-1);
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.35rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    box-shadow: 4px 4px 0px #000, 4px 4px 0px var(--marker-pink);
+    transform: rotate(-1deg);
+    transition: all 0.2s ease;
+}
+
+.btn-play-hero:hover {
+    transform: translateY(-4px) rotate(-2deg) scale(1.04);
+    background: #fff;
+    box-shadow: 6px 6px 0px #000, 6px 6px 0px var(--marker-cyan);
+}
+
+.btn-info-hero,
+.btn-bookmark-hero {
+    background: var(--bg-surface);
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 0.85rem 1.6rem;
+    border-radius: var(--radius-doodle-2);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 3px 3px 0px #000;
+    transition: all 0.2s ease;
+}
+
+.btn-info-hero:hover,
+.btn-bookmark-hero:hover {
+    background: var(--marker-cyan);
+    color: #000;
+    border-color: #000;
+    transform: translateY(-2px) rotate(1.5deg);
+    box-shadow: 4px 4px 0px var(--marker-yellow);
+}
+
+/* ==========================================================================
+   BROADCAST SCHEDULE (DOODLE SKETCH STRIP)
+   ========================================================================== */
+.schedule-section {
+    background: var(--bg-surface);
+    border: 2.5px solid #fff;
+    border-radius: var(--radius-doodle-2);
+    padding: 1.2rem 1.6rem;
+    margin-bottom: 2.2rem;
+    box-shadow: 4px 4px 0px #000, 4px 4px 0px var(--marker-cyan);
+}
+
+.schedule-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.schedule-title-box {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Gochi Hand', cursive;
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: #fff;
+}
+
+.text-neon {
+    color: var(--marker-yellow);
+}
+
+.schedule-days {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.day-chip {
+    background: #0d0f17;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: var(--text-muted);
+    padding: 0.4rem 1.1rem;
+    border-radius: var(--radius-doodle-1);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.day-chip:hover {
+    color: #fff;
+    border-color: #fff;
+    transform: rotate(2deg);
+}
+
+.day-chip.active {
+    background: var(--marker-yellow);
+    color: #000;
+    font-weight: 800;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 0px var(--marker-pink);
+    transform: rotate(-2deg);
+}
+
+/* Genre Filter Chips */
+.filter-section {
+    margin-bottom: 2rem;
+}
+
+.genre-chips {
+    display: flex;
+    gap: 0.7rem;
+    overflow-x: auto;
+    padding-bottom: 0.8rem;
+    scrollbar-width: none;
+}
+.genre-chips::-webkit-scrollbar {
+    display: none;
+}
+
+.chip {
+    white-space: nowrap;
+    background: var(--bg-surface);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    color: var(--text-muted);
+    padding: 0.55rem 1.3rem;
+    border-radius: var(--radius-doodle-2);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 2px 2px 0px #000;
+    transition: all 0.2s ease;
+}
+
+.chip:hover {
+    color: #fff;
+    border-color: #fff;
+    transform: translateY(-2px);
+}
+
+.chip.active {
+    background: var(--marker-pink);
+    color: #fff;
+    border: 2px solid #000;
+    box-shadow: 3px 3px 0px var(--marker-yellow);
+    transform: rotate(-1deg);
+}
+
+/* Section Header */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.8rem;
+}
+
+.section-title-wrap h2 {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 2px 2px 0px #000;
+}
+
+.count-badge {
+    background: #0d0f17;
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-doodle-1);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 0.95rem;
+    color: var(--marker-yellow);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   ANIME GRID & DOODLE SKETCH CARDS
+   ========================================================================== */
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+}
+
+.anime-card {
+    background: var(--bg-surface);
+    border: 2.5px solid #fff;
+    border-radius: var(--radius-doodle-1);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 0px #000, 5px 5px 0px var(--marker-yellow);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anime-card:hover {
+    transform: translateY(-8px) rotate(-1deg) scale(1.02);
+    border-color: var(--marker-pink);
+    box-shadow: 7px 7px 0px #000, 7px 7px 0px var(--marker-pink);
+}
+
+.card-poster-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 145%;
+    overflow: hidden;
+    background: #0d101d;
+    border-bottom: 2px solid #000;
+}
+
+.card-poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.anime-card:hover .card-poster {
+    transform: scale(1.08);
+}
+
+.card-badges-top {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.card-type-tag {
+    background: #000;
+    color: var(--marker-yellow);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-doodle-2);
+    border: 1.5px solid #fff;
+    box-shadow: 2px 2px 0px var(--marker-pink);
+}
+
+.card-rating-tag {
+    background: #000;
+    color: var(--marker-yellow);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-doodle-2);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    border: 1.5px solid #fff;
+    box-shadow: 2px 2px 0px var(--marker-cyan);
+}
+
+.card-play-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 10, 18, 0.65);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.25s ease;
+    z-index: 3;
+}
+
+.anime-card:hover .card-play-overlay {
+    opacity: 1;
+}
+
+.play-circle-icon {
+    width: 62px;
+    height: 62px;
+    background: var(--marker-yellow);
+    border: 3px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #000;
+    box-shadow: 3px 3px 0px #fff;
+    transform: scale(0.7) rotate(-5deg);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anime-card:hover .play-circle-icon {
+    transform: scale(1) rotate(0deg);
+}
+
+.card-content {
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: var(--bg-surface);
+}
+
+.card-title {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.card-status {
+    color: var(--marker-cyan);
+    font-weight: 800;
+}
+
+/* Pagination */
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 2rem;
+}
+
+.page-btn {
+    background: var(--bg-surface);
+    border: 2px solid #fff;
+    color: var(--text-main);
+    min-width: 44px;
+    height: 44px;
+    border-radius: var(--radius-doodle-2);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0px #000;
+    transition: all 0.2s ease;
+}
+
+.page-btn:hover {
+    background: var(--marker-cyan);
+    color: #000;
+    border-color: #000;
+    transform: rotate(2deg);
+}
+
+.page-btn.active {
+    background: var(--marker-yellow);
+    color: #000;
+    border: 2px solid #000;
+    box-shadow: 3px 3px 0px var(--marker-pink);
+    transform: rotate(-2deg);
+}
+
+/* ==========================================================================
+   VIDEO PLAYER MODAL (DOODLE CINEMA SCREEN)
+   ========================================================================== */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 7, 14, 0.92);
+    backdrop-filter: blur(12px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.modal-container {
+    background: var(--bg-surface);
+    border: 3.5px solid #fff;
+    border-radius: var(--radius-doodle-1);
+    width: 100%;
+    max-width: 1100px;
+    max-height: 92vh;
+    overflow-y: auto;
+    padding: 2rem;
+    box-shadow: 8px 8px 0px #000, 8px 8px 0px var(--marker-pink);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.modal-title-info h3 {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.85rem;
+    color: #fff;
+    margin-bottom: 0.3rem;
+    text-shadow: 2px 2px 0px #000;
+}
+
+.modal-badges {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.modal-badge {
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    border: 1.5px solid #000;
+    border-radius: var(--radius-doodle-2);
+    box-shadow: 2px 2px 0px #fff;
+}
+
+.modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.btn-fav-anime {
+    background: var(--marker-pink);
+    border: 2px solid #000;
+    color: #fff;
+    padding: 0.65rem 1.2rem;
+    border-radius: var(--radius-doodle-2);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px #fff;
+}
+
+.btn-close-modal {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #000;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0px var(--marker-pink);
+    transition: all 0.2s ease;
+}
+
+.btn-close-modal:hover {
+    background: var(--marker-yellow);
+    color: #000;
+    transform: rotate(90deg) scale(1.1);
+}
+
+.video-player-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #000;
+    border: 3px solid #fff;
+    border-radius: var(--radius-doodle-2);
+    overflow: hidden;
+    box-shadow: 5px 5px 0px #000;
+}
+
+.video-player-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.player-loader {
+    position: absolute;
+    inset: 0;
+    background: #080a12;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.anime-spinner {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-ring {
+    position: absolute;
+    inset: 0;
+    border: 4px dashed var(--marker-yellow);
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+}
+
+.spinner-icon {
+    color: var(--marker-pink);
+    font-size: 1.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.auto-next-toast {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: var(--bg-surface);
+    border: 2.5px solid #fff;
+    border-radius: var(--radius-doodle-1);
+    padding: 1rem 1.4rem;
+    box-shadow: 4px 4px 0px #000, 4px 4px 0px var(--marker-yellow);
+    z-index: 20;
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.toast-icon {
+    font-size: 1.6rem;
+    color: var(--marker-cyan);
+}
+
+.toast-text h4 {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.15rem;
+    color: #fff;
+}
+
+.toast-text p {
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.toast-actions {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.btn-toast-play {
+    background: var(--marker-yellow);
+    border: 2px solid #000;
+    color: #000;
+    font-family: 'Patrick Hand', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--radius-doodle-2);
+    cursor: pointer;
+}
+
+.btn-toast-cancel {
+    background: #000;
+    border: 1.5px solid #fff;
+    color: #fff;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-doodle-2);
+    cursor: pointer;
+}
+
+/* Server Selector */
+.server-selector-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background: #0d0f17;
+    padding: 0.9rem 1.2rem;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-doodle-2);
+}
+
+.server-label {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--marker-yellow);
+}
+
+.server-buttons {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.server-btn {
+    background: var(--bg-surface);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: var(--text-main);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-doodle-1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+.server-btn:hover {
+    color: #fff;
+    border-color: #fff;
+    transform: rotate(1.5deg);
+}
+
+.server-btn.active {
+    background: var(--marker-pink);
+    color: #fff;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 0px var(--marker-yellow);
+    transform: rotate(-1.5deg);
+}
+
+/* Episodes Bar */
+.episodes-bar {
+    background: #0d0f17;
+    border: 2.5px solid #fff;
+    border-radius: var(--radius-doodle-1);
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.episodes-bar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.season-picker {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--marker-yellow);
+}
+
+.glass-dropdown-trigger {
+    background: var(--bg-surface);
+    border: 2px solid #fff;
+    color: #fff;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--radius-doodle-2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 2px 2px 0px #000;
+}
+
+.glass-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: var(--bg-surface);
+    border: 2.5px solid #fff;
+    border-radius: var(--radius-doodle-2);
+    padding: 0.5rem;
+    min-width: 140px;
+    z-index: 100;
+    box-shadow: 4px 4px 0px #000, 4px 4px 0px var(--marker-pink);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.dropdown-item {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--radius-sm);
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+    background: var(--marker-yellow);
+    color: #000;
+}
+
+.auto-next-box {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.auto-next-label {
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.toggle-pill {
+    width: 50px;
+    height: 28px;
+    background: #000;
+    border: 2px solid #fff;
+    border-radius: var(--radius-full);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-pill.active {
+    background: var(--marker-cyan);
+    border-color: #000;
+    box-shadow: 2px 2px 0px var(--marker-yellow);
+}
+
+.toggle-thumb {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 1.5px solid #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-pill.active .toggle-thumb {
+    transform: translateX(22px);
+    background: #000;
+    border-color: #fff;
+}
+
+.episode-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.episode-label {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.episode-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 0.7rem;
+    max-height: 180px;
+    overflow-y: auto;
+    padding-right: 0.4rem;
+}
+
+.ep-btn {
+    background: var(--bg-surface);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: var(--text-main);
+    padding: 0.6rem 0.4rem;
+    border-radius: var(--radius-doodle-2);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 2px 2px 0px #000;
+    transition: all 0.2s ease;
+}
+
+.ep-btn:hover {
+    color: #000;
+    background: var(--marker-cyan);
+    border-color: #000;
+    transform: rotate(2deg);
+}
+
+.ep-btn.active {
+    background: var(--marker-yellow);
+    color: #000;
+    border: 2px solid #000;
+    box-shadow: 3px 3px 0px var(--marker-pink);
+    transform: rotate(-2deg);
+}
+
+.modal-anime-details {
+    background: #0d0f17;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-doodle-1);
+    padding: 1.4rem;
+}
+
+.anime-detail-grid {
+    display: flex;
+    gap: 1.6rem;
+    align-items: flex-start;
+}
+
+.anime-modal-poster {
+    width: 120px;
+    border: 2.5px solid #fff;
+    border-radius: var(--radius-doodle-2);
+    box-shadow: 4px 4px 0px #000;
+}
+
+.anime-modal-synopsis h4 {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.3rem;
+    color: var(--marker-yellow);
+    margin-bottom: 0.4rem;
+}
+
+.anime-modal-synopsis p {
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.anime-meta-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.genre-pill {
+    background: #000;
+    border: 1.5px solid var(--marker-cyan);
+    color: var(--marker-cyan);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-doodle-2);
+    box-shadow: 2px 2px 0px var(--marker-pink);
+}
+
+/* ==========================================================================
+   FOOTER (MANGA BACKSTAGE STYLE)
+   ========================================================================== */
+.footer {
+    background: #090a10;
+    border-top: 3.5px dashed rgba(255, 255, 255, 0.3);
+    padding: 4rem 1.5rem 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-container {
+    max-width: 1440px;
+    margin: 0 auto 3rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 3rem;
+}
+
+.footer-brand-box p {
+    font-family: 'Patrick Hand', sans-serif;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    max-width: 420px;
+}
+
+.footer-links-box h4 {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.4rem;
+    color: var(--marker-yellow);
+    margin-bottom: 1.2rem;
+}
+
+.footer-links-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.footer-links-box a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-links-box a:hover {
+    color: var(--marker-pink);
+    transform: translateX(6px) rotate(1deg);
+}
+
+.status-pill {
+    background: #0d0f17;
+    border: 2px solid #fff;
+    padding: 0.6rem 1.1rem;
+    border-radius: var(--radius-doodle-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.4rem;
+    box-shadow: 3px 3px 0px var(--marker-yellow);
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--marker-yellow);
+    border: 1.5px solid #000;
+    border-radius: 50%;
+}
+
+.back-to-top {
+    background: var(--marker-pink);
+    border: 2.5px solid #000;
+    color: #fff;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 0.75rem 1.6rem;
+    border-radius: var(--radius-doodle-1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 4px 4px 0px #fff;
+    transition: all 0.2s ease;
+}
+
+.back-to-top:hover {
+    background: var(--marker-yellow);
+    color: #000;
+    transform: translateY(-3px) rotate(-2deg);
+}
+
+.footer-bottom {
+    max-width: 1440px;
+    margin: 0 auto;
+    border-top: 2px dashed rgba(255, 255, 255, 0.2);
+    padding-top: 1.8rem;
+    text-align: center;
+    color: var(--text-dim);
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .desktop-menu {
+        display: none !important;
+    }
+    .mobile-dropdown-btn {
+        display: inline-flex !important;
+    }
+    .anime-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar {
+        top: 8px;
+        padding: 0 0.5rem;
+    }
+    .nav-container {
+        padding: 0.5rem 0.8rem;
+        gap: 0.5rem;
+    }
+    .brand-text {
+        display: none;
+    }
+    .desktop-menu {
+        display: none !important;
+    }
+    .mobile-dropdown-btn {
+        display: inline-flex !important;
+        padding: 0.4rem 0.8rem;
+    }
+    .mobile-dropdown-btn span {
+        display: none;
+    }
+    .search-box {
+        width: 100%;
+        min-width: 150px;
+    }
+    .search-box:focus-within {
+        width: 100%;
+    }
+    .nav-actions {
+        flex: 1;
+        justify-content: flex-end;
+        gap: 0.5rem;
+    }
+    .main-content {
+        padding-top: 85px;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+    .hero-section {
+        min-height: auto;
+        padding-bottom: 2rem;
+    }
+    .hero-content {
+        padding: 1.5rem;
+    }
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    .hero-synopsis {
+        font-size: 1rem;
+        -webkit-line-clamp: 4;
+    }
+    .hero-meta {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+    }
+    .hero-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .btn-play-hero, .btn-info-hero, .btn-bookmark-hero {
+        width: 100%;
+        justify-content: center;
+    }
+    .schedule-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .anime-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        margin-bottom: 2rem;
+    }
+    .card-content {
+        padding: 0.6rem;
+    }
+    .card-title {
+        font-size: 1rem;
+    }
+    .card-info-row {
+        font-size: 0.85rem;
+    }
+    .modal-container {
+        padding: 1rem;
+        max-height: 95vh;
+    }
+    .modal-title-info h3 {
+        font-size: 1.4rem;
+    }
+    .modal-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .modal-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .anime-detail-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .anime-modal-poster {
+        width: 150px;
+    }
+    .anime-meta-badges {
+        justify-content: center;
+    }
+    .episodes-bar-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .season-picker, .auto-next-box {
+        justify-content: space-between;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    .footer-links-box ul {
+        align-items: center;
+    }
+}
